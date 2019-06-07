@@ -27,8 +27,11 @@
     section {
       margin-bottom: 1em;
     }
+    #stuff-i-made section:not(:last-child) {
+      border-bottom: 1px solid #cacaca;
+    }
     .work {
-      max-width: 640px;
+      max-width: 720px;
       margin-bottom: 2em;
     }
     .work img {
@@ -66,7 +69,7 @@
   </div>
   </section>
 
-  <section>
+  <section id="stuff-i-made">
   <h2>Stuff I made</h2>
 
   <section>
@@ -124,6 +127,9 @@
           <p><a href="https://picksbans.yuki.games"><img src="/static/dota2-picksbans.png"></a></p>
           <p class="url"><a href="https://picksbans.yuki.games">picksbans.yuki.games</a></p>
         </div>
+        <div class="column">
+          <p>Dota 2 competitive stats website generator. Written in Python.</p>
+        </div>
       </div>
     </div>
     <div class="work">
@@ -135,6 +141,37 @@
     <div class="work">
       <h4>oled-canvas</h4>
       <p><a href="https://github.com/yukidaruma/oled-canvas">oled-canvas on GitHub</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h3>Past <small>(~2015)</small></h3>
+    <p>
+      At this point, I hadn't started using Git yet.
+      Had been in love with Perl, jQuery and CoffeeScript.<br>
+      Every project is no longer maintened or publicly accessible.
+    </p>
+
+    <div class="work">
+      <h4>pw-graph</h4>
+      <div class="columns">
+        <div class="column">
+          <p>August 2015</p>
+          <p><a href="/static/pw-graph.png"><img src="/static/pw-graph.png"></a></p>
+        </div>
+        <!--
+          Actually I've completely forgotten about this before making this webpage...
+          Last ever project written in Perl.
+          Without this project, I would have been stick with old fashioned development style longer.
+          This project made me want to learn Git, Python, Vue.js.
+        -->
+      </div>
+    </div>
+    <div class="work">
+      <h4>latestmatches2png</h4>
+      <p>July 2015</p>
+      <p>Generates Dota 2 match history image using <a href="https://wkhtmltopdf.org/">wkhtmltoimage</a>. Meant to be used as a blog widget.</p>
+      <p><a href="/static/latestmatches2png.png">Generated image example</a></p>
     </div>
   </section>
 
