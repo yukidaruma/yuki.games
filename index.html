@@ -2,8 +2,48 @@
 <head>
   <meta charset="utf-8">
   <script src="https://ikuwow.github.io/yourcontributions/widget.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    integrity="sha256-ujE/ZUB6CMZmyJSgQjXGCF4sRRneOimQplBVLu8OU5w=" crossorigin="anonymous" />
+  <style>
+    body > .container {
+      padding: 1em;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin-bottom: .25em;
+    }
+    h1 {
+      font-size: 180%;
+    }
+    h2 {
+      font-size: 160%;
+    }
+    h3 {
+      font-size: 140%;
+    }
+    h4 {
+      font-size: 120%;
+    }
+    section {
+      margin-bottom: 1em;
+    }
+    .work {
+      max-width: 640px;
+      margin-bottom: 2em;
+    }
+    .work img {
+      max-width: 320px;
+    }
+    .work .url a {
+      color: #6c6c6c;
+    }
+  </style>
 </head>
 <html>
+  <div class="container">
+  <h1>Yuki.games</h1>
+
+  <section>
   <h2>Socials</h2>
   <ul>
     <li><a href="https://github.com/yukidaruma">GitHub @yukidaruma</a></li>
@@ -14,42 +54,96 @@
     <li><a href="https://www.youtube.com/channel/UC5kRZ3dapP989t-r4VIns9A">YouTube Yukinkling</a></li>
     -->
   </ul>
+  </section>
+
+  <section>
   <h2>GitHub Activity</h2>
   <div>
-    <a href="https://github.com/yukidaruma"><img src="https://ghchart.rshah.org/yukidaruma"></a>
-    <br>via <a href="https://ghchart.rshah.org/">https://ghchart.rshah.org/</a>
+    <p>
+      <a href="https://github.com/yukidaruma"><img src="https://ghchart.rshah.org/yukidaruma"></a>
+      <br>via <a href="https://ghchart.rshah.org/">https://ghchart.rshah.org/</a>
+    </p>
   </div>
+  </section>
 
+  <section>
   <h2>Stuff I made</h2>
-  <h3>2019</h3>
-  <ul>
-    <li><a href="https://splatoon-stats.yuki.games">Splatoon Stats</a> <a href="https://github.com/yukidaruma/splatoon-stats-web">(GitHub)</a></li>
-  </ul>
-  <h3>2018</h3>
-  <ul>
-    <li><a href="/static/splatoon2-overlay.png">Splatoon 2 stream overlay</a> (closed source)</li>
-  </ul>
-  <h3>2017</h3>
-  <ul>
-    <li>
-      <a href="https://hatebu-viewer.surge.sh">Hatebu Viewer</a>
-      <a href="https://github.com/yukidaruma/hatebu-viewer">(GitHub)</a>
-    </li>
-  </ul>
-  <h3>2016</h3>
-  <ul>
-    <li><a href="https://github.com/yukidaruma/oled-canvas">oled-canvas</a></li>
-    <li><a href="https://github.com/yukidaruma/dota2-spectating-helper">dota2-spectating-helper</a> <a href="https://gfycat.com/tepidsnappyindianspinyloach">demo</a> (discontinued)</li>
-    <li><a href="https://picksbans.yuki.games">Dota 2 Picks and Bans</a> (closed source, discontinued)</li>
-  </ul>
-  <!--
-  <h3>2015</h3>
-  <ul>
-    latestmatches2png
-  </ul>
 
+  <section>
+    <h3>2019</h3>
+    <div class="work">
+      <h4><a href="https://splatoon-stats.yuki.games">Splatoon Stats</a></h4>
+      <div class="columns">
+        <div class="column">
+          <p><img src="/static/splatoon-stats.png"></p>
+          <p class="url"><a href="https://splatoon-stats.yuki.games">splatoon-stats.yuki.games</a></p>
+        </div>
+        <div class="column">
+          <p>April 2019 ~</p>
+          <p><a href="https://github.com/yukidaruma/splatoon-stats-api">splatoon-stats-api on GitHub</a></p>
+          <p><a href="https://github.com/yukidaruma/splatoon-stats-web">splatoon-stats-web on GitHub</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>2018</h3>
+    <div class="work">
+      <h4>Splatoon 2 stream overlay (closed source)</h4>
+      <div class="columns">
+        <div class="column">
+          <p><a href="/static/splatoon2-overlay.png"><img src="/static/splatoon2-overlay.png"></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>2017</h3>
+    <div class="work">
+      <h4><a href="https://hatebu-viewer.surge.sh">Hatebu Viewer</a></h4>
+      <div class="columns">
+        <div class="column">
+          <p><a href="https://hatebu-viewer.surge.sh"><img src="/static/hatebu-viewer.png"></a></p>
+          <p class="url"><a href="https://hatebu-viewer.surge.sh">hatebu-viewer.surge.sh</a></p>
+        </div>
+        <div class="column">
+          <p><a href="https://github.com/yukidaruma/hatebu-viewer">hatebu-viewer on GitHub</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>2016</h3>
+    <div class="work">
+      <h4><a href="https://picksbans.yuki.games">Dota 2 Picks and Bans</a> <small>(closed source, discontinued)</small></h4>
+      <div class="columns">
+        <div class="column">
+          <p><a href="https://picksbans.yuki.games"><img src="/static/dota2-picksbans.png"></a></p>
+          <p class="url"><a href="https://picksbans.yuki.games">picksbans.yuki.games</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="work">
+      <h4>dota2-spectating-helper <small>(discontinued)</small></h4>
+      <p><a href="https://github.com/yukidaruma/dota2-spectating-helper">dota2-spectating-helper on GitHub</a></p>
+      <p><a href="https://gfycat.com/tepidsnappyindianspinyloach">Demo (video)</a></p>
+      <p><a href="http://dota2yukidaruman.hatenablog.com/entry/lets-play-with-dota2-game-state-integration-built-spectating-helper">blog post</a> (written in Japanese)</p>
+    </div>
+    <div class="work">
+      <h4>oled-canvas</h4>
+      <p><a href="https://github.com/yukidaruma/oled-canvas">oled-canvas on GitHub</a></p>
+    </div>
+  </section>
+
+  <!--
   <h3>English to Japanese translation</h3>
   - http://dota2yukidaruman.hatenablog.com/entry/2017/03/07/213000
   - Move or Die (Steam forum)
   -->
+
+  </section>
+  </div>
 </html>
