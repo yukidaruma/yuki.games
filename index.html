@@ -36,6 +36,10 @@
     .work img {
       max-width: 320px;
     }
+    .work img.center {
+      display: block;
+      margin: 0 auto;
+    }
     .work .url a {
       color: #6c6c6c;
     }
@@ -227,9 +231,18 @@
     </div>
     <div class="work">
       <h4>latestmatches2png</h4>
-      <p>July 2015</p>
-      <p>Generates Dota 2 match history image using <a href="https://wkhtmltopdf.org/">wkhtmltoimage</a>. Meant to be used as a blog widget.</p>
-      <p><a href="/static/latestmatches2png.png">Generated image example</a></p>
+      <div class="columns">
+        <div class="column">
+          <img class="center" src="/static/latestmatches2png.png">
+        </div>
+        <div class="column">
+          <p>July 2015</p>
+          <p>Generates Dota 2 match history image using <a href="https://wkhtmltopdf.org/">wkhtmltoimage</a>. Meant to be used as a blog widget.</p>
+          <ul class="technology-stacks">
+            <li>CoffeeScript</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
