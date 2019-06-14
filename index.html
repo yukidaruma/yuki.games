@@ -7,7 +7,7 @@
     integrity="sha256-ujE/ZUB6CMZmyJSgQjXGCF4sRRneOimQplBVLu8OU5w=" crossorigin="anonymous" />
   <style>
     @media screen {
-      .work img {
+      .work .thumbnail img {
         box-shadow:
         0 10px 20px rgba(0, 0, 0, 0.2),
         0 6px 6px rgba(0, 0, 0, 0.2);
@@ -48,10 +48,10 @@
       max-width: 720px;
       margin-bottom: 2em;
     }
-    .work img {
+    .work .thumbnail {
       max-width: 320px;
     }
-    .work img.center {
+    .work .thumbnail.center img {
       display: block;
       margin: 0 auto;
     }
@@ -107,10 +107,10 @@
   <section>
   <h2>GitHub Activity</h2>
   <div>
-    <p>
+    <div class="thumbnail">
       <a href="https://github.com/yukidaruma"><img src="https://ghchart.rshah.org/yukidaruma"></a>
       <br>via <a href="https://ghchart.rshah.org/">https://ghchart.rshah.org/</a>
-    </p>
+    </div>
   </div>
   </section>
 
@@ -125,7 +125,9 @@
       <div class="columns">
         <div class="column">
           <h4><a href="https://splatoon-stats.yuki.games">Splatoon Stats</a></h4>
-          <p><a href="https://splatoon-stats.yuki.games"><img src="/static/splatoon-stats.png"></a></p>
+          <div class="thumbnail">
+            <a href="https://splatoon-stats.yuki.games"><img src="/static/splatoon-stats.png"></a>
+          </div>
           <p class="url"><a href="https://splatoon-stats.yuki.games">splatoon-stats.yuki.games</a></p>
         </div>
         <div class="column">
@@ -153,7 +155,9 @@
       <div class="columns">
         <div class="column">
           <h4>Splatoon 2 stream overlay</h4>
-          <p><a href="/static/splatoon2-overlay.png"><img src="/static/splatoon2-overlay.png"></a></p>
+          <div class="thumbnail">
+            <a href="/static/splatoon2-overlay.png"><img src="/static/splatoon2-overlay.png"></a>
+          </div>
         </div>
         <div class="column">
           <p class="release-date"><time datetime="2018-07">July 2018</time></p>
@@ -177,7 +181,9 @@
       <div class="columns">
         <div class="column">
           <h4><a href="https://hatebu-viewer.surge.sh">Hatebu Viewer</a></h4>
-          <p><a href="https://hatebu-viewer.surge.sh"><img src="/static/hatebu-viewer.png"></a></p>
+          <div class="thumbnail">
+            <a href="https://hatebu-viewer.surge.sh"><img src="/static/hatebu-viewer.png"></a>
+          </div>
           <p class="url"><a href="https://hatebu-viewer.surge.sh">hatebu-viewer.surge.sh</a></p>
         </div>
         <div class="column">
@@ -242,7 +248,9 @@
         <div class="columns">
           <div class="column">
             <h4><a href="https://picksbans.yuki.games">Dota 2 Picks and Bans</a></h4>
-            <p><a href="https://picksbans.yuki.games"><img src="/static/dota2-picksbans.png"></a></p>
+            <div class="thumbnail">
+              <a href="https://picksbans.yuki.games"><img src="/static/dota2-picksbans.png"></a>
+            </div>
             <p class="url"><a href="https://picksbans.yuki.games">picksbans.yuki.games</a></p>
           </div>
           <div class="column">
@@ -273,7 +281,9 @@
       <div class="columns">
         <div class="column">
           <h4>pw-graph</h4>
-          <p><a href="/static/pw-graph.png"><img src="/static/pw-graph.png"></a></p>
+          <div class="thumbnail"><a href="/static/pw-graph.png">
+            <img src="/static/pw-graph.png"></a>
+          </div>
         </div>
         <div class="column">
           <p class="release-date"><time datetime="2015-08">August 2015</time></p>
@@ -295,7 +305,9 @@
       <div class="columns">
         <div class="column">
           <h4>latestmatches2png</h4>
-          <img class="center" src="/static/latestmatches2png.png">
+          <div class="thumbnail center">
+            <img src="/static/latestmatches2png.png">
+          </div>
         </div>
         <div class="column">
           <p class="release-date"><time datetime="2015-07">July 2015</time></p>
@@ -310,7 +322,9 @@
       <div class="columns">
         <div class="column">
           <h4>nBBS</h4>
-          <p><img class="center" src="/static/nbbs.png"></p>
+          <div class="thumbnail center">
+            <img src="/static/nbbs.png">
+          </div>
         </div>
         <div class="column">
           <p class="release-date"><time datetime="2012-03">March 2012</time></p>
@@ -327,7 +341,9 @@
       <div class="columns">
         <div class="column">
           <h4>Pokemon IV analyzer</h4>
-          <p><a href="/static/pokemon-iv.png"><img src="/static/pokemon-iv.png"></a></p>
+          <div class="thumbnail">
+            <a href="/static/pokemon-iv.png"><img src="/static/pokemon-iv.png"></a>
+          </div>
         </div>
         <div class="column">
           <p class="release-date"><time datetime="2011-08">August 2011</time></p>
