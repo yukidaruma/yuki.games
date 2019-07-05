@@ -36,8 +36,8 @@
     h4 {
       font-size: 120%;
     }
-    section {
-      margin-bottom: 1em;
+    section+section {
+      margin-top: 1em;
     }
     section header {
       margin: 1em 0;
@@ -48,12 +48,14 @@
       height: 104px;
       width: 702px;
     }
-    #stuff-i-made section:not(:last-child) {
-      border-bottom: 1px solid #cacaca;
+    #stuff-i-made section+section {
+      border-top: 1px solid #cacaca;
     }
     .work {
       max-width: 720px;
-      margin-bottom: 2em;
+    }
+    .work+.work {
+      margin-top: 2em;
     }
     .work .thumbnail {
       max-width: 320px;
@@ -106,19 +108,19 @@
     .work .url a {
       color: #6c6c6c;
     }
-    .work h4 {
-      margin-bottom: .5em;
+    .work .thumbnail {
+      margin-top: .5em;
     }
-    .work .release-date {
-      margin-bottom: .5em;
+    .work .release-date+p {
+      margin-top: .5em;
     }
     .work .release-date time {
       line-height: calc(1.5rem * 1.2);
       font-size: 90%;
       color: #6c6c6c;
     }
-    .work .description {
-      margin-bottom: .5em;
+    .work .description+p {
+      margin-top: .5em;
     }
 
     ul.technology-stacks {
