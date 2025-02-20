@@ -1,1 +1,65 @@
 @import 'tailwindcss';
+
+body {
+	background: var(--color-slate-900);
+	min-height: 100vh;
+	color: var(--color-slate-300);
+	font-family: var(--font-mono);
+}
+
+/* Navigations */
+a {
+	color: var(--color-blue-400);
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Headings */
+h1 {
+	margin: calc(var(--spacing) * 4) 0;
+	color: var(--color-slate-100);
+	font-size: var(--text-3xl);
+}
+h1::before {
+	display: inline-block;
+	width: var(--text-3xl);
+	content: '#';
+	color: var(--color-slate-500);
+}
+h2 {
+	margin: calc(var(--spacing) * 4) 0 calc(var(--spacing) * 2);
+	color: var(--color-slate-100);
+	font-size: var(--text-xl);
+	border-bottom: 1px solid var(--color-slate-700);
+}
+h2::before {
+	display: inline-block;
+	width: var(--text-3xl);
+	content: '##';
+	color: var(--color-slate-500);
+}
+
+/* Sections */
+section > div {
+	margin-left: var(--text-3xl);
+}
+section > p + p {
+	margin-top: calc(var(--spacing) * 2);
+}
+
+/* Lists */
+ul > li {
+	list-style: disc;
+}
+ul > li + li {
+	margin-top: calc(var(--spacing) * 2);
+}
+
+/* Code */
+code {
+	color: var(--color-slate-100);
+	background: var(--color-slate-800);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+}
