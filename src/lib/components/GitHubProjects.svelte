@@ -47,6 +47,28 @@
 	};
 	const featuredRepos = [
 		{
+			name: 'Emoji2Text',
+			repoName: 'emoji2text-font',
+			url: 'https://yukidaruma.github.io/emoji2text-font/demo.html',
+
+			isMinor: true,
+			description: 'A font that turns emojis into their names, like 😀 into grinning_face.',
+			techStack: ['l:Python', 'FontForge'],
+
+			since: '2025-08'
+		},
+		{
+			name: 'LivestreamChatReader',
+			url: 'https://chromewebstore.google.com/detail/gpnckbhgpnjciklpoehkmligeaebigaa',
+
+			isMinor: true,
+			description:
+				'Chrome Extension that reads YouTube livestream chat messages aloud with text-to-speech.',
+			techStack: ['l:TypeScript', 'Chrome Extension'],
+
+			since: '2025-07'
+		},
+		{
 			name: 'yuki.games',
 			repoName: 'yukidaruma.github.io',
 
