@@ -29,7 +29,11 @@
 			<a href="https://github.com/yukidaruma/{repoName ?? name}" target="_blank">
 				repo
 			</a>{#if star}
-				<span class="ml-2">★{star}</span>{/if}
+				<a
+					class="ml-2 text-current!"
+					href="https://github.com/yukidaruma/{repoName ?? name}/stargazers"
+					target="_blank">★{star}</a
+				>{/if}
 		</span>
 	{/if}
 	{#if isMinor}

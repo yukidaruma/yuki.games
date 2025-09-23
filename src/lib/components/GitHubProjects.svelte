@@ -231,6 +231,11 @@
 				console.error('Error:', error);
 			});
 	});
+	const totalStars = $derived(
+		Object.keys(stars).length > 0
+			? Object.values(stars).reduce((sum, count) => sum + count, 0)
+			: '-'
+	);
 
 	function formatDateTime(date: string) {
 		// Parse "YYYY-MM" and convert it to "MMM YYYY"
@@ -242,11 +247,16 @@
 	}
 </script>
 
-<label class="flex space-x-2 cursor-pointer -ml-5 text-sm">
-	<input type="checkbox" bind:checked={showMinorProjects} />
-	<span>Include minor projects</span>
-</label>
-<ul class="mt-2 space-y-4">
+<div class="-ml-5 flex items-center justify-between space-x-4">
+	<label class="flex space-x-1 cursor-pointer text-sm">
+		<input type="checkbox" bind:checked={showMinorProjects} />
+		<span>Include minor projects</span>
+	</label>
+	<p class="text-sm">
+		Total stars: {totalStars}
+	</p>
+</div>
+<ul class="mt-4 space-y-4">
 	{#each filteredFeaturedRepos as repo}
 		{@const {
 			name,
