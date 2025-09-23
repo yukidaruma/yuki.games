@@ -257,7 +257,7 @@
 	</p>
 </div>
 <ul class="mt-4 space-y-4">
-	{#each filteredFeaturedRepos as repo}
+	{#each filteredFeaturedRepos as repo (repo.name)}
 		{@const {
 			name,
 			repoName,
