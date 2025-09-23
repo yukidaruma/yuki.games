@@ -23,8 +23,6 @@
 		discontinued?: true;
 	};
 
-	let showMinorProjects = $state(false);
-
 	const stories: Partial<
 		Record<typeof featuredRepos extends { name: infer U }[] ? U : never, string>
 	> = {
@@ -209,9 +207,6 @@
 			discontinued: true
 		}
 	] as const satisfies FeaturedRepo[];
-	const filteredFeaturedRepos = $derived(
-		showMinorProjects ? featuredRepos : featuredRepos.filter(({ isMinor: minor }) => !minor)
-	);
 
 	// Fetch stars count
 	let stars = $state<Record<string, number>>({});
@@ -248,8 +243,8 @@
 </script>
 
 <div class="-ml-5 flex items-center justify-between space-x-4">
-	<label class="flex space-x-1 cursor-pointer text-sm">
-		<input type="checkbox" bind:checked={showMinorProjects} />
+	<label for="show-minor-projects" class="flex space-x-1 cursor-pointer text-sm">
+		<input type="checkbox" id="show-minor-projects" />
 		<span>Include minor projects</span>
 	</label>
 	<p class="text-sm">
@@ -257,7 +252,7 @@
 	</p>
 </div>
 <ul class="mt-4 space-y-4">
-	{#each filteredFeaturedRepos as repo (repo.name)}
+	{#each featuredRepos as repo (repo.name)}
 		{@const {
 			name,
 			repoName,
@@ -270,7 +265,7 @@
 			until,
 			discontinued
 		} = repo}
-		<li>
+		<li class:minor-project={isMinor}>
 			<div>
 				<GitHubProjectHeading {repo} star={stars[repoName ?? name]} />
 			</div>
@@ -319,5 +314,14 @@
 	.tech-stack > .language {
 		background-color: var(--color-slate-500);
 		color: var(--color-gray-50);
+	}
+
+	.minor-project {
+		display: none;
+	}
+
+	/* Check if the descendant checkbox is on */
+	div:has(#show-minor-projects:checked) ~ ul .minor-project {
+		display: list-item;
 	}
 </style>
