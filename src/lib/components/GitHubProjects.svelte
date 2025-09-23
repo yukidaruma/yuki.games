@@ -29,6 +29,8 @@
 	> = {
 		Takizawabot:
 			'When Takizawa Hideaki\'s unique way of using Twitter (writing updates on his "bio") went viral, I came up with the idea to create this bot. I then rapidly coded the bot while requesting API access and creating a server instance.\nTo my surprise, this bot became my most popular creation. News about this bot (<a href="https://web.archive.org/web/20221114103748/https://news.yahoo.co.jp/articles/6baeaf8f18c75c28298eb62500c30d2eb15be454" target="_blank">Yahoo! News</a>) was published (Note: I was not interviewed).\nUnfortunately, it was shut down when Twitter ended free API access.',
+		'esbuild-apps-script-template':
+			"I don't know how it gets 2 stars, but I want to say thank you to those who gave me stars here and want to give this project a spotlight.",
 		'Salmon Stats':
 			'From 3,000 players worldwide, 2 million records were uploaded to the site during its active period.',
 		'Splatoon Stats':
@@ -97,6 +99,15 @@
 
 			since: '2022-11',
 			until: '2023-03'
+		},
+		{
+			name: 'esbuild-apps-script-template',
+
+			isMinor: true,
+			description: 'A template repository for using esbuild with Google Apps Script.',
+			techStack: ['l:TypeScript', 'Google Apps Script'],
+
+			since: '2021-04'
 		},
 		{
 			name: 'Salmon Stats',
