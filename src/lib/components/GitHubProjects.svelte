@@ -247,9 +247,6 @@
 						<span class="text-gray-400 font-medium">{name}</span>
 					{/if}
 				</strong>
-				{#if isMinor}
-					<span class="text-xs text-gray-400">(minor project)</span>
-				{/if}
 				{#if !hasNoRepo}
 					<span class="text-xs">
 						<a href="https://github.com/yukidaruma/{repoName ?? name}" target="_blank">
@@ -257,6 +254,9 @@
 						</a>{#if stars[repoName ?? name]}
 							<span class="ml-2">★{stars[repoName ?? name]}</span>{/if}
 					</span>
+				{/if}
+				{#if isMinor}
+					<span class="text-xs text-gray-400">(minor project)</span>
 				{/if}
 			</div>
 			<div class="text-xs text-slate-400">
