@@ -58,12 +58,13 @@
 			since: '2025-08'
 		},
 		{
-			name: 'LivestreamChatReader',
+			name: 'Livestream Chat Reader',
+			repoName: 'LivestreamChatReader',
 			url: 'https://chromewebstore.google.com/detail/gpnckbhgpnjciklpoehkmligeaebigaa',
 
 			isMinor: true,
 			description:
-				'Chrome Extension that reads YouTube livestream chat messages aloud with text-to-speech.',
+				'<img alt="Chrome Web Store - user count" src="https://img.shields.io/chrome-web-store/users/gpnckbhgpnjciklpoehkmligeaebigaa?style=flat-square&color=%234285f4&label=Users&logo=googlechrome"> Chrome Extension that reads YouTube/Twitch livestream chat messages aloud.',
 			techStack: ['l:TypeScript', 'Chrome Extension'],
 
 			since: '2025-07'
@@ -299,6 +300,13 @@
 </ul>
 
 <style>
+	ul :global {
+		img {
+			display: inline;
+			height: 1em;
+		}
+	}
+
 	.tech-stack > li {
 		display: inline;
 		margin-top: 0;
