@@ -62,7 +62,7 @@
 
 			isMinor: true,
 			description:
-				'<img alt="Chrome Web Store - user count" src="https://img.shields.io/chrome-web-store/users/gpnckbhgpnjciklpoehkmligeaebigaa?style=flat-square&color=%234285f4&label=Users&logo=googlechrome"> Chrome Extension that reads YouTube/Twitch livestream chat messages aloud.',
+				'<img width="60" alt="Chrome Web Store - user count" src="https://img.shields.io/chrome-web-store/users/gpnckbhgpnjciklpoehkmligeaebigaa?style=flat-square&color=%234285f4&label=Users&logo=googlechrome"> Chrome Extension that reads YouTube/Twitch livestream chat messages aloud.',
 			techStack: ['l:TypeScript', 'Chrome Extension'],
 
 			since: '2025-07'
@@ -265,12 +265,12 @@
 			</div>
 
 			<div class="text-sm">
-				<p class="inline mt-1">
+				<p class="inline align-middle mt-1 whitespace-pre-wrap">
 					{@html description}
+					{#if stories[name]}
+						<ReadMoreDialog title={name} content={stories[name]} />
+					{/if}
 				</p>
-				{#if stories[name]}
-					<ReadMoreDialog title={name} content={stories[name]} />
-				{/if}
 			</div>
 			<ul class="tech-stack mt-1 flex space-x-2 text-gray-400">
 				{#each techStack as tech}
@@ -287,7 +287,7 @@
 	ul :global {
 		img {
 			display: inline;
-			height: 1em;
+			max-height: 1em;
 		}
 	}
 
