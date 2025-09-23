@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
-	const DEV = false;
+	import ReadMoreDialog from './ReadMoreDialog.svelte';
 
 	type RepoData = {
 		name: string;
@@ -23,14 +22,13 @@
 		discontinued?: true;
 	};
 
-	let showMinorProjects = $state(DEV);
-	let shownStory = $state<string | null>(null);
+	let showMinorProjects = $state(false);
 
 	const stories: Partial<
 		Record<typeof featuredRepos extends { name: infer U }[] ? U : never, string>
 	> = {
 		Takizawabot:
-			'When Takizawa Hideaki\'s unique way of using Twitter (writing updates on his "bio") went viral, I came up with the idea to create this bot. I then rapidly coded the bot while requesting API access and creating a server instance. To my surprise, this bot became my most popular creation. News about this bot (<a href="https://web.archive.org/web/20221114103748/https://news.yahoo.co.jp/articles/6baeaf8f18c75c28298eb62500c30d2eb15be454" target="_blank">Yahoo! News</a>) was published, even though I was not interviewed.\nUnfortunately, it was shut down when Twitter ended free API access.',
+			'When Takizawa Hideaki\'s unique way of using Twitter (writing updates on his "bio") went viral, I came up with the idea to create this bot. I then rapidly coded the bot while requesting API access and creating a server instance.\nTo my surprise, this bot became my most popular creation. News about this bot (<a href="https://web.archive.org/web/20221114103748/https://news.yahoo.co.jp/articles/6baeaf8f18c75c28298eb62500c30d2eb15be454" target="_blank">Yahoo! News</a>) was published (Note: I was not interviewed).\nUnfortunately, it was shut down when Twitter ended free API access.',
 		'Salmon Stats':
 			'From 3,000 players worldwide, 2 million records were uploaded to the site during its active period.',
 		'Splatoon Stats':
@@ -230,20 +228,11 @@
 			year: 'numeric'
 		});
 	}
-
-	function handleReadMore(name: string) {
-		if (shownStory === name) {
-			shownStory = null;
-			return;
-		}
-
-		shownStory = name;
-	}
 </script>
 
-<label class="block cursor-pointer -ml-5 text-sm">
+<label class="flex space-x-2 cursor-pointer -ml-5 text-sm">
 	<input type="checkbox" bind:checked={showMinorProjects} />
-	<span>Show minor projects</span>
+	<span>Include minor projects</span>
 </label>
 <ul class="mt-2 space-y-4">
 	{#each filteredFeaturedRepos as { name, repoName, description, isMinor, hasNoRepo, techStack, url, since, until, discontinued }}
@@ -251,11 +240,11 @@
 			<div>
 				<strong>
 					{#if url}
-						<a href={url} target="_blank">
+						<a class="text-current!" href={url} target="_blank">
 							{name}
 						</a>
 					{:else}
-						{name}
+						<span class="text-gray-400 font-medium">{name}</span>
 					{/if}
 				</strong>
 				{#if isMinor}
@@ -280,12 +269,7 @@
 					{@html description}
 				</p>
 				{#if stories[name]}
-					<button class="anchor" onclick={() => handleReadMore(name)}>
-						{shownStory === name ? 'Hide story' : 'Read more'}
-					</button>
-					<div class={['mt-2 whitespace-pre-wrap', DEV || shownStory === name ? null : 'hidden']}>
-						{@html stories[name]}
-					</div>
+					<ReadMoreDialog title={name} content={stories[name]} />
 				{/if}
 			</div>
 			<ul class="tech-stack mt-1 flex space-x-2 text-gray-400">
