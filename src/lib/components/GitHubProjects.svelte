@@ -92,7 +92,7 @@
 			name: 'Takizawabot',
 			url: 'https://x.com/bioBOT52342033',
 
-			description: 'A Twitter bot that gained 60k followers over 3 months.',
+			description: 'A Twitter bot that gained 60k followers within 3 months.',
 			techStack: ['l:TypeScript'],
 
 			since: '2022-11',
