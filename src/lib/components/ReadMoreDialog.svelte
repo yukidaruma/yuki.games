@@ -7,16 +7,31 @@
 		DialogTitle,
 		DialogTrigger
 	} from '$lib/components/ui/dialog';
+	import GitHubProjectHeading from './GitHubProjectHeading.svelte';
 
-	export let title = '';
-	export let content = '';
+	type Props = {
+		repo?: {
+			name: string;
+			repoName?: string;
+			url?: string;
+			isMinor?: boolean;
+			hasNoRepo?: boolean;
+		};
+		star?: number;
+		title?: string;
+		content: string;
+	};
+
+	let { repo, star, title, content }: Props = $props();
 </script>
 
 <Dialog>
 	<DialogTrigger class="anchor">Read More</DialogTrigger>
 	<DialogContent class="max-w-2xl max-h-[80vh] overflow-y-auto">
 		<DialogHeader>
-			{#if title}
+			{#if repo}
+				<DialogTitle><GitHubProjectHeading {repo} {star} /></DialogTitle>
+			{:else if title}
 				<DialogTitle>{title}</DialogTitle>
 			{/if}
 		</DialogHeader>

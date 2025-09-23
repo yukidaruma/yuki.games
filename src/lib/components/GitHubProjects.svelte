@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ReadMoreDialog from './ReadMoreDialog.svelte';
+	import GitHubProjectHeading from './GitHubProjectHeading.svelte';
 
 	type RepoData = {
 		name: string;
@@ -246,29 +247,22 @@
 	<span>Include minor projects</span>
 </label>
 <ul class="mt-2 space-y-4">
-	{#each filteredFeaturedRepos as { name, repoName, description, isMinor, hasNoRepo, techStack, url, since, until, discontinued }}
+	{#each filteredFeaturedRepos as repo}
+		{@const {
+			name,
+			repoName,
+			description,
+			isMinor,
+			hasNoRepo,
+			techStack,
+			url,
+			since,
+			until,
+			discontinued
+		} = repo}
 		<li>
 			<div>
-				<strong>
-					{#if url}
-						<a class="text-current!" href={url} target="_blank">
-							{name}
-						</a>
-					{:else}
-						<span class="text-gray-400 font-medium">{name}</span>
-					{/if}
-				</strong>
-				{#if !hasNoRepo}
-					<span class="text-xs">
-						<a href="https://github.com/yukidaruma/{repoName ?? name}" target="_blank">
-							repo
-						</a>{#if stars[repoName ?? name]}
-							<span class="ml-2">★{stars[repoName ?? name]}</span>{/if}
-					</span>
-				{/if}
-				{#if isMinor}
-					<span class="text-xs text-gray-400">(minor project)</span>
-				{/if}
+				<GitHubProjectHeading {repo} star={stars[repoName ?? name]} />
 			</div>
 			<div class="text-xs text-slate-400">
 				{formatDateTime(since)}
@@ -279,7 +273,7 @@
 				<p class="inline align-middle mt-1 whitespace-pre-wrap">
 					{@html description}
 					{#if stories[name]}
-						<ReadMoreDialog title={name} content={stories[name]} />
+						<ReadMoreDialog {repo} star={stars[repoName ?? name]} content={stories[name]} />
 					{/if}
 				</p>
 			</div>
