@@ -33,10 +33,10 @@
 	<div>
 		<ul>
 			<li>
-				<a href="https://github.com/yukidaruma">GitHub</a>
+				<a href="https://github.com/yukidaruma" title="GitHub: yukidaruma">GitHub</a>
 			</li>
 			<li>
-				<a href="https://twitter.com/YukiDotGames">X</a>
+				<a href="https://x.com/YukiDotGames" title="X (Former Twitter): YukiDotGames">X</a>
 			</li>
 		</ul>
 	</div>

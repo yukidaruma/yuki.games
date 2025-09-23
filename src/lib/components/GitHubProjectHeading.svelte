@@ -26,12 +26,17 @@
 	</strong>
 	{#if !hasNoRepo}
 		<span class="text-xs">
-			<a href="https://github.com/yukidaruma/{repoName ?? name}" target="_blank">
+			<a
+				href="https://github.com/yukidaruma/{repoName ?? name}"
+				title="View repository on GitHub"
+				target="_blank"
+			>
 				repo
 			</a>{#if star}
 				<a
 					class="ml-2 text-current!"
 					href="https://github.com/yukidaruma/{repoName ?? name}/stargazers"
+					title="View stargazers on GitHub"
 					target="_blank">★{star}</a
 				>{/if}
 		</span>

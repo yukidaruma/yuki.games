@@ -6,7 +6,7 @@
 
 <div id="app" class="max-w-3xl mx-auto px-4">
 	<h1>
-		<a href="/" class="text-current!">Yuki.games</a>
+		<a href="/" class="text-current!" title="Yuki.games - Home">Yuki.games</a>
 	</h1>
 	{@render children()}
 </div>
