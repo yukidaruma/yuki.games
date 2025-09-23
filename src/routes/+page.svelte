@@ -2,8 +2,6 @@
 	import GitHubProjects from '$lib/components/GitHubProjects.svelte';
 </script>
 
-<h1>Yuki.games</h1>
-
 <section>
 	<h2>Personal Projects</h2>
 	<div>
@@ -42,4 +40,9 @@
 			</li>
 		</ul>
 	</div>
+</section>
+
+<section>
+	<h2>Other</h2>
+	<p><a href="/privacy">Privacy Policy</a></p>
 </section>
