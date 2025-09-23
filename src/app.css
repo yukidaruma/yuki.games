@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
 
 body {
 	background: var(--color-slate-900);
@@ -6,7 +10,7 @@ body {
 	color: var(--color-slate-300);
 	font-family: var(--font-mono);
 	padding: calc(var(--spacing) * 6) 0;
-	line-height: 1.25;
+	line-height: 1.4;
 }
 
 /* Navigations */
@@ -55,6 +59,9 @@ section > div {
 	margin-left: var(--text-3xl);
 }
 section > p + p {
+	margin-top: calc(var(--spacing) * 4);
+}
+p + p {
 	margin-top: calc(var(--spacing) * 2);
 }
 
