@@ -61,10 +61,9 @@
 			repoName: 'LivestreamChatReader',
 			url: 'https://chromewebstore.google.com/detail/gpnckbhgpnjciklpoehkmligeaebigaa',
 
-			isMinor: true,
 			description:
 				'<img width="60" alt="Chrome Web Store - user count" src="https://img.shields.io/chrome-web-store/users/gpnckbhgpnjciklpoehkmligeaebigaa?style=flat-square&color=%234285f4&label=Users&logo=googlechrome"> Chrome Extension that reads YouTube/Twitch livestream chat messages aloud.',
-			techStack: ['l:TypeScript', 'Chrome Extension'],
+			techStack: ['l:TypeScript', 'Chrome Extension', 'E2E test'],
 
 			since: '2025-07'
 		},
@@ -114,7 +113,7 @@
 
 			description:
 				'Splatoon 2 Salmon Run gamemode record tracking website. (<a href="https://github.com/yukidaruma/salmon-stats-web" target="_blank">Frontend repo</a>)',
-			techStack: ['l:PHP', 'l:TypeScript', 'MySQL', 'Vue'],
+			techStack: ['l:PHP', 'l:TypeScript', 'MySQL', 'Laravel', 'Vue'],
 
 			since: '2019-06',
 			until: '2022-02'
