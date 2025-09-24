@@ -246,7 +246,7 @@
 		<input type="checkbox" id="show-minor-projects" />
 		<span>Include minor projects</span>
 	</label>
-	<p class="text-sm require-js">
+	<p class="text-sm js">
 		Total stars: {totalStars}
 	</p>
 </div>
@@ -274,12 +274,20 @@
 			</div>
 
 			<div class="text-sm">
-				<p class="inline align-middle mt-1 whitespace-pre-wrap">
+				<div class="mt-1">
 					{@html description}
 					{#if stories[name]}
-						<ReadMoreDialog {repo} star={stars[repoName ?? name]} content={stories[name]} />
+						<details class="no-js inline">
+							<summary class="ml-0">Read More</summary>
+							<div class="mt-2">
+								{@html '<p>' + stories[name].replace(/\n+/g, '</p><p>') + '</p>'}
+							</div>
+						</details>
+						<div class="js">
+							<ReadMoreDialog {repo} star={stars[repoName ?? name]} content={stories[name]} />
+						</div>
 					{/if}
-				</p>
+				</div>
 			</div>
 			<ul class="tech-stack mt-1 flex space-x-2 text-gray-400">
 				{#each techStack as tech}
@@ -293,6 +301,8 @@
 </ul>
 
 <style>
+	@reference "tailwindcss";
+
 	ul :global {
 		img {
 			display: inline;
@@ -322,5 +332,14 @@
 	/* Check if the descendant checkbox is on */
 	div:has(#show-minor-projects:checked) ~ ul .minor-project {
 		display: list-item;
+	}
+
+	summary {
+		@apply inline cursor-pointer text-blue-400 hover:underline;
+	}
+	summary::marker,
+	summary::before,
+	summary::after {
+		content: '';
 	}
 </style>

@@ -7,7 +7,7 @@
 
 	// If JavaScript is enabled, add ".js" class to <html>
 	onMount(() => {
-		document.documentElement.classList.add('js');
+		document.documentElement.classList.add('js-enabled');
 	});
 </script>
 
@@ -20,12 +20,14 @@
 
 <style>
 	:global {
-		.require-js {
+		.js {
 			display: none;
 		}
-
-		html.js .require-js {
+		html.js-enabled .js {
 			display: initial;
+		}
+		html.js-enabled .no-js {
+			display: none;
 		}
 	}
 </style>
