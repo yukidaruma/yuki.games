@@ -246,7 +246,7 @@
 		<input type="checkbox" id="show-minor-projects" />
 		<span>Include minor projects</span>
 	</label>
-	<p class="text-sm">
+	<p class="text-sm require-js">
 		Total stars: {totalStars}
 	</p>
 </div>
