@@ -1,0 +1,4 @@
+[submodule "blog.yuki.games"]
+	path = blog.yuki.games
+	url = https://github.com/yukidaruma/blog.yuki.games.git
+	branch = publish

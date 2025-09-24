@@ -41,12 +41,3 @@
 		</ul>
 	</div>
 </section>
-
-<section>
-	<h2>Other</h2>
-	<div>
-		<ul>
-			<li><a href="/privacy">Privacy Policy</a></li>
-		</ul>
-	</div>
-</section>

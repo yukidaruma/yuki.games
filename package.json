@@ -17,11 +17,13 @@
 		"@eslint/compat": "^1.3.2",
 		"@eslint/js": "^9.34.0",
 		"@internationalized/date": "^3.9.0",
+		"@jsdevtools/rehype-toc": "^3.0.2",
 		"@lucide/svelte": "^0.544.0",
 		"@sveltejs/adapter-auto": "^6.1.0",
 		"@sveltejs/kit": "^2.36.2",
 		"@sveltejs/vite-plugin-svelte": "^6.1.3",
 		"@tailwindcss/vite": "^4.1.12",
+		"@types/node": "^24.5.2",
 		"bits-ui": "^2.11.1",
 		"clsx": "^2.1.1",
 		"eslint": "^9.34.0",
@@ -30,6 +32,8 @@
 		"globals": "^16.3.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
+		"remark-footnotes": "2.0",
+		"remark-heading-id": "github:imcuttle/remark-heading-id#5f6272e54a0d7182a9b8f06dfea7b71e89b31d44",
 		"svelte": "^5.38.3",
 		"svelte-check": "^4.3.1",
 		"tailwind-merge": "^3.3.1",
@@ -38,9 +42,12 @@
 		"tw-animate-css": "^1.3.8",
 		"typescript": "^5.9.2",
 		"typescript-eslint": "^8.40.0",
-		"vite": "^7.1.3"
+		"vite": "^7.1.3",
+		"vite-plugin-static-copy": "^3.1.2"
 	},
 	"dependencies": {
+		"github-markdown-css": "^5.8.1",
+		"mdsvex": "^0.12.6",
 		"shadcn-svelte": "^1.0.7"
 	}
 }
