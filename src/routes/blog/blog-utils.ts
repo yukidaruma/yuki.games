@@ -2,6 +2,7 @@ export type BlogFrontmatter = {
 	title: string;
 	tags?: string[];
 	summary?: string;
+	'is-archive'?: boolean;
 };
 
 export type BlogPathData = {

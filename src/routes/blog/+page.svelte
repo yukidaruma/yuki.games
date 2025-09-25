@@ -8,6 +8,12 @@
 		frontmatter: BlogFrontmatter;
 	}> = [];
 
+	let archivePosts: Array<{
+		slug: string;
+		slugData: ReturnType<typeof parseBlogPostSlug>;
+		frontmatter: BlogFrontmatter;
+	}> = [];
+
 	onMount(async () => {
 		const modules = import.meta.glob('../../../blog.yuki.games/contents/*.md');
 
@@ -24,7 +30,12 @@
 			})
 		);
 
-		blogPosts = loadedModules.sort((a, b) => b.slugData.date.getTime() - a.slugData.date.getTime());
+		// Separate posts and archives
+		const sortedModules = loadedModules.sort(
+			(a, b) => b.slugData.date.getTime() - a.slugData.date.getTime()
+		);
+		blogPosts = sortedModules.filter((post) => !post.frontmatter['is-archive']);
+		archivePosts = sortedModules.filter((post) => post.frontmatter['is-archive']);
 	});
 </script>
 
@@ -32,23 +43,25 @@
 	<title>Blog - yuki.games/blog</title>
 </svelte:head>
 
-<h2>Blog</h2>
-<section>
-	<div>
-		<ul>
-			{#each blogPosts as post}
-				<li>
-					<a href="/blog/{post.slug}" class="hover:underline">
-						{post.frontmatter.title}
-					</a>
-					{#if post.slugData.dateStr}
-						(<time>{post.slugData.dateStr}</time>)
-					{/if}
-					{#if post.frontmatter.summary}
-						<p class="mt-2 text-gray-700">{post.frontmatter.summary}</p>
-					{/if}
-				</li>
-			{/each}
-		</ul>
-	</div>
-</section>
+{#each [blogPosts, archivePosts] as posts, index}
+	<h2>{index === 0 ? 'Blog' : 'Old blog archive'}</h2>
+	<section>
+		<div>
+			<ul>
+				{#each posts as post}
+					<li>
+						{#if post.slugData.dateStr}
+							<date>{post.slugData.dateStr}</date>
+						{/if}
+						<a href="/blog/{post.slug}" class="hover:underline">
+							{post.frontmatter.title}
+						</a>
+						{#if post.frontmatter.summary}
+							<p class="mt-2 text-gray-700">{post.frontmatter.summary}</p>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</section>
+{/each}
