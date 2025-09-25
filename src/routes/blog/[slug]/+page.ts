@@ -9,6 +9,7 @@ export type PageData = {
 	gitHubUrl: string;
 	date: Date;
 	dateStr: string;
+	slug: string;
 };
 
 export const load: PageLoad<PageData> = async ({ params }) => {
@@ -33,7 +34,8 @@ export const load: PageLoad<PageData> = async ({ params }) => {
 				dateStr,
 				content: post.default,
 				frontmatter: post.metadata,
-				gitHubUrl: `https://github.com/yukidaruma/blog.yuki.games/blob/publish/${contentPath}`
+				gitHubUrl: `https://github.com/yukidaruma/blog.yuki.games/blob/publish/${contentPath}`,
+				slug: params.slug
 			};
 		}
 	} catch {

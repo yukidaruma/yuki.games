@@ -6,6 +6,12 @@
 
 <svelte:head>
 	<title>{data.frontmatter.title} - yuki.games/blog</title>
+	<meta property="og:title" content={`${data.frontmatter.title} - yuki.games/blog`} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://yuki.games/blog/{data.slug}" />
+	{#if data.frontmatter.summary}
+		<meta property="og:description" content={data.frontmatter.summary} />
+	{/if}
 </svelte:head>
 
 <section>
