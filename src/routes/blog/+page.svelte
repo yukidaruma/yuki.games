@@ -14,29 +14,27 @@
 		frontmatter: BlogFrontmatter;
 	}> = [];
 
-	onMount(async () => {
-		const modules = import.meta.glob('../../../blog.yuki.games/contents/*.md');
+	const modules = import.meta.glob('../../../blog.yuki.games/contents/*.md');
 
-		const moduleEntries = Object.entries(modules);
-		const loadedModules = await Promise.all(
-			moduleEntries.map(async ([path, loader]) => {
-				const mod = (await loader()) as { metadata: BlogFrontmatter };
-				const slug = path.split('/').pop()!.replace('.md', '');
-				return {
-					slug,
-					slugData: parseBlogPostSlug(slug),
-					frontmatter: mod.metadata
-				};
-			})
-		);
+	const moduleEntries = Object.entries(modules);
+	const loadedModules = await Promise.all(
+		moduleEntries.map(async ([path, loader]) => {
+			const mod = (await loader()) as { metadata: BlogFrontmatter };
+			const slug = path.split('/').pop()!.replace('.md', '');
+			return {
+				slug,
+				slugData: parseBlogPostSlug(slug),
+				frontmatter: mod.metadata
+			};
+		})
+	);
 
-		// Separate posts and archives
-		const sortedModules = loadedModules.sort(
-			(a, b) => b.slugData.date.getTime() - a.slugData.date.getTime()
-		);
-		blogPosts = sortedModules.filter((post) => !post.frontmatter['is-archive']);
-		archivePosts = sortedModules.filter((post) => post.frontmatter['is-archive']);
-	});
+	// Separate posts and archives
+	const sortedModules = loadedModules.sort(
+		(a, b) => b.slugData.date.getTime() - a.slugData.date.getTime()
+	);
+	blogPosts = sortedModules.filter((post) => !post.frontmatter['is-archive']);
+	archivePosts = sortedModules.filter((post) => post.frontmatter['is-archive']);
 </script>
 
 <svelte:head>
