@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
-import { parseBlogPostSlug, type BlogFrontmatter } from '../blog-utils';
+import { ensureFrontmatterProperties } from '../blog-utils';
+import type { BlogFrontmatter } from '../blog-utils';
 import type { Component } from 'svelte';
 import type { PageLoad } from './$types';
 
@@ -7,8 +8,6 @@ export type PageData = {
 	content: Component;
 	frontmatter: BlogFrontmatter;
 	gitHubUrl: string;
-	date: Date;
-	dateStr: string;
 	slug: string;
 };
 
@@ -27,13 +26,9 @@ export const load: PageLoad<PageData> = async ({ params }) => {
 				default: Component;
 				metadata: BlogFrontmatter;
 			};
-			const { date, dateStr } = parseBlogPostSlug(params.slug);
-
 			return {
-				date,
-				dateStr,
 				content: post.default,
-				frontmatter: post.metadata,
+				frontmatter: ensureFrontmatterProperties(params.slug, post.metadata),
 				gitHubUrl: `https://github.com/yukidaruma/blog.yuki.games/blob/publish/${contentPath}`,
 				slug: params.slug
 			};

@@ -46,6 +46,7 @@
 		"vite-plugin-static-copy": "^3.1.2"
 	},
 	"dependencies": {
+		"date-fns": "^4.1.0",
 		"github-markdown-css": "^5.8.1",
 		"mdsvex": "^0.12.6",
 		"prism-themes": "^1.9.0",

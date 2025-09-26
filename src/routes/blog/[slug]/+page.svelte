@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './+page';
+	import { formatDateFull } from '../blog-utils';
 
 	export let data: PageData;
 </script>
@@ -14,15 +15,24 @@
 	{/if}
 </svelte:head>
 
-<section>
-	{#if data.frontmatter.title}
-		<h2>
-			<span>{data.frontmatter.title}</span>
-		</h2>
-	{/if}
-	<div class="mt-0! text-base text-gray-400 font-mono">
-		Published at: <date>{data.dateStr}</date>
-	</div>
+<section class="mt-4">
+	<header class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+		{#if data.frontmatter.title}
+			<h2 class="mt-0!">
+				<span>{data.frontmatter.title}</span>
+			</h2>
+		{/if}
+		<div
+			class="text-sm text-gray-500 font-mono grid grid-cols-[auto_1fr] gap-x-2 ml-8 mt-0! md:ml-0 md:text-right"
+		>
+			<span class="md:text-right">Published at:</span>
+			<date>{formatDateFull(data.frontmatter['published-at'])}</date>
+			{#if data.frontmatter['updated-at']}
+				<span class="md:text-right">Updated at:</span>
+				<date>{formatDateFull(data.frontmatter['updated-at'])}</date>
+			{/if}
+		</div>
+	</header>
 
 	<div class="mt-4">
 		<article class="markdown-body bg-inherit!">
@@ -31,8 +41,9 @@
 	</div>
 </section>
 
-<footer class="flex mt-8 pt-2 border-t border-gray-700 gap-2 justify-end">
-	<a href={data.gitHubUrl} target="_blank">Read this on GitHub</a>
+<footer class="footer-links flex mt-8 pt-2 border-t border-gray-700 gap-2 text-xs justify-end">
+	<a href={data.gitHubUrl} target="_blank">View on GitHub</a>
+	<a href={`${data.gitHubUrl.replace('/blob/', '/blame/')}`} target="_blank">blame</a>
 </footer>
 
 <style>
@@ -41,6 +52,13 @@
 	:global {
 		@import 'github-markdown-css/github-markdown-dark.css';
 		@import 'prism-themes/themes/prism-a11y-dark.css';
+
+		.footer-links a::before {
+			content: '[';
+		}
+		.footer-links a::after {
+			content: ']';
+		}
 
 		.toc {
 			@apply pb-6 mb-6 border-b-4 border-[#3d444d];

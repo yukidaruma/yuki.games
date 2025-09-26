@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { parseBlogPostSlug, type BlogFrontmatter } from './blog-utils';
+	import { ensureFrontmatterProperties, formatDateFull, type BlogFrontmatter } from './blog-utils';
 
 	let blogPosts: Array<{
 		slug: string;
-		slugData: ReturnType<typeof parseBlogPostSlug>;
 		frontmatter: BlogFrontmatter;
 	}> = [];
 
 	let archivePosts: Array<{
 		slug: string;
-		slugData: ReturnType<typeof parseBlogPostSlug>;
 		frontmatter: BlogFrontmatter;
 	}> = [];
 
@@ -22,15 +20,14 @@
 			const slug = path.split('/').pop()!.replace('.md', '');
 			return {
 				slug,
-				slugData: parseBlogPostSlug(slug),
-				frontmatter: mod.metadata
+				frontmatter: ensureFrontmatterProperties(slug, mod.metadata)
 			};
 		})
 	);
 
 	// Separate posts and archives
 	const sortedModules = loadedModules.sort(
-		(a, b) => b.slugData.date.getTime() - a.slugData.date.getTime()
+		(a, b) => b.frontmatter['published-at'].getTime() - a.frontmatter['published-at'].getTime()
 	);
 	blogPosts = sortedModules.filter((post) => !post.frontmatter['is-archive']);
 	archivePosts = sortedModules.filter((post) => post.frontmatter['is-archive']);
@@ -47,9 +44,16 @@
 			<ul>
 				{#each posts as post}
 					<li>
-						{#if post.slugData.dateStr}
-							<date>{post.slugData.dateStr}</date>
-						{/if}
+						<date
+							class={post.frontmatter['updated-at']
+								? 'border-b border-dotted border-gray-400 cursor-help'
+								: null}
+							title={post.frontmatter['updated-at']
+								? `Updated at: ${formatDateFull(post.frontmatter['updated-at'])}`
+								: null}
+						>
+							{formatDateFull(post.frontmatter['published-at'])}
+						</date>
 						<a href="/blog/{post.slug}" class="hover:underline">
 							{post.frontmatter.title}
 						</a>

@@ -1,31 +1,36 @@
+import { format } from 'date-fns';
+
 export type BlogFrontmatter = {
 	title: string;
+	'published-at': Date;
+	'updated-at'?: Date;
 	tags?: string[];
 	summary?: string;
 	'is-archive'?: boolean;
 };
 
-export type BlogPathData = {
-	date: Date;
-	dateStr: string; // YYYY-MM-DD
-	year: number;
-	month: number; // month in 1-12
-	day: number;
-};
+export function ensureFrontmatterProperties(
+	slug: string,
+	original: BlogFrontmatter
+): BlogFrontmatter {
+	const frontmatter = { ...original };
 
-export function parseBlogPostSlug(path: string): BlogPathData {
-	// Extract year from dir name and date from filename (MMDD format)
-	const yyyymmdd = path.match(/^(\d{4})(\d{2})(\d{2})/)!;
-	const year = yyyymmdd[1];
-	const month = yyyymmdd[2];
-	const day = yyyymmdd[3];
-	const dateStr = `${year}-${month}-${day}`;
+	for (const key of ['published-at', 'updated-at'] as const) {
+		if (typeof frontmatter[key] === 'string') {
+			frontmatter[key] = new Date(frontmatter[key] as string);
+		}
+	}
 
-	return {
-		date: new Date(`${dateStr}T09:00:00Z`),
-		dateStr,
-		year: parseInt(year, 10),
-		month: parseInt(month, 10),
-		day: parseInt(day, 10)
-	};
+	if (!frontmatter.title) {
+		frontmatter.title = slug;
+	}
+	if (!frontmatter['published-at']) {
+		frontmatter['published-at'] = new Date(9999, 0, 1);
+	}
+
+	return frontmatter;
+}
+
+export function formatDateFull(date: Date): string {
+	return format(date, 'yyyy-MM-dd');
 }
