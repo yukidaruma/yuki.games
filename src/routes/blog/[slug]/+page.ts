@@ -13,26 +13,19 @@ export type PageData = {
 
 export const load: PageLoad<PageData> = async ({ params }) => {
 	try {
-		const modules = import.meta.glob('../../../../blog.yuki.games/contents/*.md');
+		const slug = params.slug.replace(/[^a-zA-Z0-9-_]/g, ''); // Sanitize input to prevent directory traversal
+		const post = (await import(`../../../../blog.yuki.games/contents/${slug}.md`)) as {
+			default: Component;
+			metadata: BlogFrontmatter;
+		};
 
-		// Need to iterate to make Vite include them in the build time
-		for (const path in modules) {
-			if (!path.endsWith(`${params.slug}.md`)) {
-				continue;
-			}
-
-			const contentPath = `contents/${params.slug}.md`;
-			const post = (await modules[path]()) as {
-				default: Component;
-				metadata: BlogFrontmatter;
-			};
-			return {
-				content: post.default,
-				frontmatter: ensureFrontmatterProperties(params.slug, post.metadata),
-				gitHubUrl: `https://github.com/yukidaruma/blog.yuki.games/blob/publish/${contentPath}`,
-				slug: params.slug
-			};
-		}
+		const contentPath = `contents/${slug}.md`;
+		return {
+			content: post.default,
+			frontmatter: ensureFrontmatterProperties(params.slug, post.metadata),
+			gitHubUrl: `https://github.com/yukidaruma/blog.yuki.games/blob/publish/${contentPath}`,
+			slug: params.slug
+		};
 	} catch {
 		// no-op
 	}
