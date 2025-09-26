@@ -45,7 +45,7 @@
 		.toc {
 			@apply pb-6 mb-6 border-b-4 border-[#3d444d];
 		}
-		.toc > ol {
+		.toc .toc-level-1 {
 			@apply pl-0 mb-0 ml-4;
 		}
 		.footnotes {
