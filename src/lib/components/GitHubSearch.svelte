@@ -35,20 +35,22 @@
 		onsubmit={handleSearch}
 		class={jsStatus ? 'js' : 'no-js'}
 	>
-		<div class="flex gap-2 items-center">
+		<div class="flex flex-col md:flex-row w-full md:w-auto md:gap-2 md:items-center">
 			<label for="search-input" class={labelClass}>{label}</label>
-			<input type="hidden" name="type" value="code" />
-			<Input
-				id="search-input"
-				type="text"
-				name="q"
-				placeholder="Search keyword"
-				class="flex-1"
-				spellcheck={false}
-				required
-				{...jsStatus ? { 'bind:value': inputValue } : { value: inputValue }}
-			/>
-			<Button type="submit" variant="secondary">Search</Button>
+			<div class="flex gap-2 items-center">
+				<input type="hidden" name="type" value="code" />
+				<Input
+					id="search-input"
+					type="text"
+					name="q"
+					placeholder="Search keyword"
+					class="flex-1"
+					spellcheck={false}
+					required
+					{...jsStatus ? { 'bind:value': inputValue } : { value: inputValue }}
+				/>
+				<Button type="submit" variant="secondary">Search</Button>
+			</div>
 		</div>
 	</form>
 {/each}
