@@ -16,7 +16,7 @@
 </svelte:head>
 
 <section class="mt-4">
-	<header class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+	<header class="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
 		{#if data.frontmatter.title}
 			<h2 class="mt-0!">
 				<span>{data.frontmatter.title}</span>
@@ -73,6 +73,17 @@
 		.markdown-body {
 			ol {
 				@apply list-decimal;
+			}
+
+			a,
+			a code {
+				@apply text-blue-400! underline!;
+			}
+			h3,
+			h4,
+			h5,
+			h6 {
+				@apply font-medium!;
 			}
 
 			/* Show class name on code blocks as language name */
