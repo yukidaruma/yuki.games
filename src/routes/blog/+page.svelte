@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { parseBlogPostSlug, type BlogFrontmatter } from './blog-utils';
 
 	let blogPosts: Array<{
