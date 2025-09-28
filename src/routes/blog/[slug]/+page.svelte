@@ -10,6 +10,7 @@
 	<meta property="og:title" content={`${data.frontmatter.title} - yuki.games/blog`} />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="https://yuki.games/blog/{data.slug}" />
+	<link rel="alternate" type="text/markdown" title="Markdown source" href="/blog/{data.slug}.md" />
 	{#if data.frontmatter.summary}
 		<meta property="og:description" content={data.frontmatter.summary} />
 	{/if}
@@ -44,6 +45,7 @@
 <footer class="footer-links flex mt-8 pt-2 border-t border-gray-700 gap-2 text-xs justify-end">
 	<a href={data.gitHubUrl} target="_blank">View on GitHub</a>
 	<a href={`${data.gitHubUrl.replace('/blob/', '/blame/')}`} target="_blank">blame</a>
+	<a href="/blog/{data.slug}.md" target="_blank">Markdown</a>
 </footer>
 
 <style>
