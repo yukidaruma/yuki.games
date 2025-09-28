@@ -1,37 +1,11 @@
 <script lang="ts">
 	import { Rss } from '@lucide/svelte';
-	import { ensureFrontmatterProperties, formatDateFull, type BlogFrontmatter } from './blog-utils';
 
-	let blogPosts: Array<{
-		slug: string;
-		frontmatter: BlogFrontmatter;
-	}> = [];
+	import { formatDateFull } from './blog-utils';
+	import type { PageProps } from './$types';
 
-	let archivePosts: Array<{
-		slug: string;
-		frontmatter: BlogFrontmatter;
-	}> = [];
-
-	const modules = import.meta.glob('../../../blog.yuki.games/contents/*.md');
-
-	const moduleEntries = Object.entries(modules);
-	const loadedModules = await Promise.all(
-		moduleEntries.map(async ([path, loader]) => {
-			const mod = (await loader()) as { metadata: BlogFrontmatter };
-			const slug = path.split('/').pop()!.replace('.md', '');
-			return {
-				slug,
-				frontmatter: ensureFrontmatterProperties(slug, mod.metadata)
-			};
-		})
-	);
-
-	// Separate posts and archives
-	const sortedModules = loadedModules.sort(
-		(a, b) => b.frontmatter['published-at'].getTime() - a.frontmatter['published-at'].getTime()
-	);
-	blogPosts = sortedModules.filter((post) => !post.frontmatter['is-archive']);
-	archivePosts = sortedModules.filter((post) => post.frontmatter['is-archive']);
+	const { data }: PageProps = $props();
+	const { blogPosts, archivePosts } = data;
 </script>
 
 <svelte:head>

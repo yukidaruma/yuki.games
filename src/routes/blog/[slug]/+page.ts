@@ -1,8 +1,10 @@
 import { error } from '@sveltejs/kit';
+import type { Component } from 'svelte';
 import { ensureFrontmatterProperties } from '../blog-utils';
 import type { BlogFrontmatter } from '../blog-utils';
-import type { Component } from 'svelte';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
+
+export const prerender = true;
 
 export type PageData = {
 	content: Component;
@@ -11,7 +13,7 @@ export type PageData = {
 	slug: string;
 };
 
-export const load: PageLoad<PageData> = async ({ params }) => {
+export const load: PageServerLoad<PageData> = async ({ params }) => {
 	try {
 		const slug = params.slug.replace(/[^a-zA-Z0-9-_]/g, ''); // Sanitize input to prevent directory traversal
 		const post = (await import(`../../../../blog.yuki.games/contents/${slug}.md`)) as {
