@@ -2,6 +2,7 @@ import toc from '@jsdevtools/rehype-toc';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import rehypeUrls from 'rehype-urls';
 import remarkFootnotes from 'remark-footnotes';
 import remarkHeadingId from 'remark-heading-id';
 
@@ -28,7 +29,16 @@ export default {
 							]
 						};
 					}
-				}
+				},
+				[
+					rehypeUrls,
+					function (url) {
+						if (url.pathname?.endsWith('.md')) {
+							url.pathname = url.pathname.slice(0, -3);
+						}
+						return url;
+					}
+				]
 			]
 		})
 	],
