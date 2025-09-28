@@ -32,10 +32,15 @@ export default {
 				},
 				[
 					rehypeUrls,
-					function (url) {
-						if (!url.href.startsWith('http') && url.pathname?.endsWith('.md')) {
+					function (url, node) {
+						const isExternalLink = url.href.startsWith('http') || url.href.startsWith('https');
+						if (!isExternalLink && url.pathname?.endsWith('.md')) {
 							url.pathname = url.pathname.slice(0, -3);
 						}
+						if (node.tagName === 'a' && isExternalLink) {
+							node.properties.target = '_blank';
+						}
+
 						return url;
 					}
 				]
