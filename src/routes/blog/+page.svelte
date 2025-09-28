@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Rss } from '@lucide/svelte';
 	import { ensureFrontmatterProperties, formatDateFull, type BlogFrontmatter } from './blog-utils';
 
 	let blogPosts: Array<{
@@ -38,7 +39,14 @@
 </svelte:head>
 
 {#each [blogPosts, archivePosts] as posts, index}
-	<h2>{index === 0 ? 'Blog' : 'Old blog archive'}</h2>
+	<h2 class="flex items-center gap-2">
+		<span>{index === 0 ? 'Blog' : 'Old blog archive'}</span>
+		{#if index === 0}
+			<a href="/rss.xml" title="RSS Feed" class="text-orange-500!">
+				<Rss size={20} />
+			</a>
+		{/if}
+	</h2>
 	<section>
 		<div>
 			<ul>

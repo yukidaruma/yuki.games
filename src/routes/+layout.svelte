@@ -29,6 +29,7 @@
 
 <svelte:head>
 	<title>Blog - yuki.games</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
 </svelte:head>
 
 <div id="app" class="max-w-4xl mx-auto px-4">
