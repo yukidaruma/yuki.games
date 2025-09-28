@@ -48,6 +48,13 @@ export default {
 		})
 	],
 
+	onwarn: (warning, handler) => {
+		const { code } = warning;
+		if (code === 'css_unused_selector') return;
+
+		handler(warning);
+	},
+
 	kit: {
 		adapter: adapter()
 	},
