@@ -12,7 +12,7 @@
 
 			const navTuples = [
 				['/', 'Home'],
-				['/blog', 'Blog'],
+				['/blog', 'Blog (ja)'],
 				['/privacy', 'Privacy Policy']
 			];
 

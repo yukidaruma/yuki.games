@@ -23,7 +23,7 @@
 			</h2>
 		{/if}
 		<div
-			class="text-sm text-gray-500 font-mono grid grid-cols-[auto_1fr] gap-x-2 ml-8 mt-0! md:ml-0 md:text-right"
+			class="text-sm text-gray-500 font-mono grid grid-cols-[auto_1fr] gap-x-2 ml-8 mt-0! md:ml-0 md:text-right shrink-0"
 		>
 			<span class="md:text-right">Published at:</span>
 			<date>{formatDateFull(data.frontmatter['published-at'])}</date>

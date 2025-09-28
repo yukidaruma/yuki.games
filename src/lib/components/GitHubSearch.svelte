@@ -36,7 +36,7 @@
 		class={jsStatus ? 'js' : 'no-js'}
 	>
 		<div class="flex flex-col md:flex-row w-full md:w-auto md:gap-2 md:items-center">
-			<label for="search-input" class={labelClass}>{label}</label>
+			<label for="search-input" class="cursor-pointer {labelClass}">{label}</label>
 			<div class="flex gap-2 items-center">
 				<input type="hidden" name="type" value="code" />
 				<Input

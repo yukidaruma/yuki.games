@@ -62,7 +62,7 @@
 						>
 							{formatDateFull(post.frontmatter['published-at'])}
 						</date>
-						<a href="/blog/{post.slug}" class="hover:underline">
+						<a href="/blog/{post.slug}" class="hover:underline visited:text-purple-400!">
 							{post.frontmatter.title}
 						</a>
 						{#if post.frontmatter.summary}
