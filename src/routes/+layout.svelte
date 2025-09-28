@@ -32,7 +32,7 @@
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
 </svelte:head>
 
-<div id="app" class="max-w-4xl mx-auto px-4">
+<div id="app" class="max-w-4xl mx-auto px-2 sm:px-4">
 	<div>
 		<div class="flex items-center justify-between">
 			<h1 class="flex items-center space-x-2 [&>a]:text-current! [&>span]:text-gray-500">
