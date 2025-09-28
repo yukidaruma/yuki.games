@@ -33,7 +33,7 @@ export default {
 				[
 					rehypeUrls,
 					function (url) {
-						if (url.pathname?.endsWith('.md')) {
+						if (!url.href.startsWith('http') && url.pathname?.endsWith('.md')) {
 							url.pathname = url.pathname.slice(0, -3);
 						}
 						return url;
