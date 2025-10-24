@@ -33,10 +33,14 @@
 	<div>
 		<ul>
 			<li>
-				<a href="https://github.com/yukidaruma" title="GitHub: yukidaruma">GitHub</a>
+				<p>
+					<a href="https://github.com/yukidaruma" title="GitHub: @yukidaruma">GitHub</a> (@yukidaruma)
+				</p>
 			</li>
 			<li>
-				<a href="https://x.com/YukiDotGames" title="X (Former Twitter): YukiDotGames">X</a>
+				<p>
+					<a href="https://x.com/YukiDotGames" title="X (Former Twitter): @YukiDotGames">X</a> (@YukiDotGames)
+				</p>
 			</li>
 		</ul>
 	</div>
