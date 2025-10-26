@@ -28,33 +28,45 @@ button.anchor:hover {
 }
 
 /* Headings */
-h1 {
+h1,
+h2,
+h3 {
 	display: flex;
 	color: var(--color-slate-100);
+}
+h1::before,
+h2::before,
+h3::before {
+	flex-shrink: 0;
+	display: block;
+	width: var(--text-3xl);
+	color: var(--color-slate-500);
+	align-content: center;
+}
+
+h1 {
 	font-size: var(--text-3xl);
 }
 h1::before {
-	flex-shrink: 0;
-	display: block;
-	width: var(--text-3xl);
 	content: '#';
-	color: var(--color-slate-500);
 }
 h2 {
-	display: flex;
 	margin-top: calc(var(--spacing) * 4);
-	color: var(--color-slate-100);
 	font-size: var(--text-xl);
 }
 h2::before {
-	flex-shrink: 0;
-	display: block;
-	width: var(--text-3xl);
 	content: '##';
-	color: var(--color-slate-500);
 }
 h2 + * {
 	margin-top: calc(var(--spacing) * 2);
+}
+h3 {
+	margin-top: calc(var(--spacing) * 4);
+	font-size: var(--text-lg);
+}
+h3::before {
+	content: '###';
+	font-size: var(--text-sm);
 }
 
 /* Sections */

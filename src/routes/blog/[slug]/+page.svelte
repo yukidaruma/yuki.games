@@ -81,7 +81,13 @@
 			a code {
 				@apply text-blue-400! underline!;
 			}
-			h3,
+
+			/* offset for heading marker (###) */
+			h3 {
+				@apply font-medium!;
+				margin-left: calc(var(--text-3xl) * -1);
+			}
+
 			h4,
 			h5,
 			h6 {
