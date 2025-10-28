@@ -2,6 +2,7 @@ import toc from '@jsdevtools/rehype-toc';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import { rehypeGithubAlerts } from 'rehype-github-alerts';
 import rehypeUrls from 'rehype-urls';
 import remarkFootnotes from 'remark-footnotes';
 import remarkHeadingId from 'remark-heading-id';
@@ -15,6 +16,7 @@ export default {
 			extensions: ['.md'],
 			remarkPlugins: [[remarkHeadingId, { defaults: true, uniqueDefaults: true }], remarkFootnotes],
 			rehypePlugins: [
+				rehypeGithubAlerts,
 				toc,
 				{
 					customizeTOC: function (toc) {
