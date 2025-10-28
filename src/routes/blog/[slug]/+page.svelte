@@ -16,15 +16,12 @@
 	{/if}
 </svelte:head>
 
-<section class="mt-4">
-	<header class="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
-		{#if data.frontmatter.title}
-			<h2 class="mt-0!">
-				<span>{data.frontmatter.title}</span>
-			</h2>
-		{/if}
+<section>
+	<header
+		class="mt-4 flex md:block flex-col-reverse md:flex-row md:items-start md:justify-between gap-2"
+	>
 		<div
-			class="text-sm text-gray-500 font-mono grid grid-cols-[auto_1fr] gap-x-2 ml-8 mt-0! md:ml-0 md:text-right shrink-0"
+			class="md:float-right text-sm text-gray-500 font-mono grid grid-cols-[auto_1fr] gap-x-2 ml-8 mt-0! md:ml-0 md:text-right shrink-0"
 		>
 			<span class="md:text-right">Published at:</span>
 			<date>{formatDateFull(data.frontmatter['published-at'])}</date>
@@ -33,6 +30,9 @@
 				<date>{formatDateFull(data.frontmatter['updated-at'])}</date>
 			{/if}
 		</div>
+		<h2 class="mt-0! flex items-center">
+			<span>{data.frontmatter.title}</span>
+		</h2>
 	</header>
 
 	<div class="mt-4">
@@ -84,14 +84,14 @@
 
 			/* offset for heading marker (###) */
 			h3 {
-				@apply font-medium!;
 				margin-left: calc(var(--text-3xl) * -1);
 			}
 
+			h3,
 			h4,
 			h5,
 			h6 {
-				@apply font-medium!;
+				@apply font-normal!;
 			}
 
 			/* Show class name on code blocks as language name */
