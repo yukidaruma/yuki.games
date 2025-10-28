@@ -25,6 +25,8 @@
 	);
 
 	const isBlog = $derived(page.url.pathname.startsWith('/blog'));
+	const isLocalhost = $derived(page.url.hostname !== 'yuki.games');
+	const prodUrl = $derived(`https://yuki.games${page.url.pathname}`);
 </script>
 
 <svelte:head>
@@ -32,7 +34,7 @@
 	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
 </svelte:head>
 
-<div id="app" class="max-w-4xl mx-auto px-2 sm:px-4">
+<div id="app" class="py-6 min-h-screen max-w-4xl mx-auto px-2 sm:px-4 flex flex-col">
 	<div>
 		<div class="flex items-center justify-between">
 			<h1 class="flex items-center space-x-2 [&>a]:text-current! [&>span]:text-gray-500">
@@ -43,6 +45,9 @@
 						<a href={item.href} class="hover:underline">{item.href.substring(1)}</a>
 					{/if}
 				{/each}
+				{#if isLocalhost}
+					<a href={prodUrl} target="_blank" class="text-slate-300! text-base">_</a>
+				{/if}
 			</h1>
 			{#if isBlog}
 				<div class="hidden md:block">
@@ -74,7 +79,9 @@
 		{/if}
 	</div>
 
-	{@render children()}
+	<div class="flex-1">
+		{@render children()}
+	</div>
 </div>
 
 <style>
