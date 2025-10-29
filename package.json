@@ -34,6 +34,7 @@
 		"prettier-plugin-svelte": "^3.4.0",
 		"remark-footnotes": "2.0",
 		"remark-heading-id": "github:imcuttle/remark-heading-id#5f6272e54a0d7182a9b8f06dfea7b71e89b31d44",
+		"sass-embedded": "^1.93.2",
 		"svelte": "^5.38.3",
 		"svelte-check": "^4.3.1",
 		"tailwind-merge": "^3.3.1",
