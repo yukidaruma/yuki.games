@@ -82,6 +82,11 @@
 				@apply text-blue-400! underline!;
 			}
 
+			p,
+			li {
+				color: oklch(95% 0.003 247.858);
+			}
+
 			/* offset for heading marker (###) */
 			h3 {
 				margin-left: calc(var(--text-3xl) * -1);
