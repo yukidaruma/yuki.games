@@ -32,6 +32,7 @@
 		"globals": "^16.3.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
+		"rehype-autolink-headings": "^7.1.0",
 		"remark-footnotes": "2.0",
 		"remark-heading-id": "github:imcuttle/remark-heading-id#5f6272e54a0d7182a9b8f06dfea7b71e89b31d44",
 		"sass-embedded": "^1.93.2",
