@@ -7,11 +7,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-	overflow-y: scroll;
-	background: var(--color-slate-900);
-	min-height: 100vh;
-	color: var(--color-slate-300);
-	font-family: var(--font-mono);
+	@apply min-h-svh bg-slate-900 text-slate-300 font-mono;
 	line-height: 1.4;
 }
 
