@@ -1,0 +1,24 @@
+<!--
+# SPDX-License-Identifier: CC0-1.0
+-->
+<svg
+	class="absolute z-0 bottom-0 w-full h-32"
+	viewBox="0 0 1200 128"
+	preserveAspectRatio="none"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<path
+		d="M0,12 Q100,6 200,10 T400,6 T600,12 T800,10 T1000,6 T1200,10 L1200,128 L0,128 Z"
+		fill="#f8fafc"
+		opacity="0.6"
+	/>
+	<path
+		d="M0,20 Q150,10 300,16 T600,20 T900,16 T1200,20 L1200,128 L0,128 Z"
+		fill="#f1f5f9"
+		opacity="0.8"
+	/>
+	<path
+		d="M0,30 Q120,20 240,30 T480,35 T720,30 T960,35 T1200,30 L1200,128 L0,128 Z"
+		fill="#ffffff"
+	/>
+</svg>
