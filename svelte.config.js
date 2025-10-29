@@ -2,6 +2,7 @@ import toc from '@jsdevtools/rehype-toc';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { rehypeGithubAlerts } from 'rehype-github-alerts';
 import rehypeUrls from 'rehype-urls';
 import remarkFootnotes from 'remark-footnotes';
@@ -17,21 +18,15 @@ export default {
 			remarkPlugins: [[remarkHeadingId, { defaults: true, uniqueDefaults: true }], remarkFootnotes],
 			rehypePlugins: [
 				rehypeGithubAlerts,
-				toc,
-				{
-					customizeTOC: function (toc) {
-						return {
-							type: 'root',
-							children: [
-								{
-									type: 'element',
-									tagName: 'h3'
-								},
-								toc
-							]
-						};
+				[
+					toc,
+					{
+						customizeTOC(toc) {
+							toc.children.push({ type: 'element', tagName: 'hr', properties: {}, children: [] });
+							return toc;
+						}
 					}
-				},
+				],
 				[
 					rehypeUrls,
 					function (url, node) {

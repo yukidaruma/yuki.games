@@ -1,8 +1,12 @@
 <script lang="ts">
+	import { setContext } from 'svelte';
 	import type { PageData } from './+page';
 	import { formatDateFull } from '../blog-utils';
+	import MarkdownBody from './markdown-body.svelte';
 
 	export let data: PageData;
+
+	setContext('markdown-content', data.content);
 </script>
 
 <svelte:head>
@@ -35,87 +39,23 @@
 		</h2>
 	</header>
 
-	<div class="mt-4">
-		<article class="markdown-body bg-inherit!">
-			<svelte:component this={data.content} />
-		</article>
-	</div>
+	<article class="m mt-4">
+		<MarkdownBody />
+		<hr />
+	</article>
 </section>
 
-<footer class="footer-links flex mt-8 pt-2 border-t border-gray-700 gap-2 text-xs justify-end">
+<footer class="footer-links flex mt-8 pt-2 gap-2 text-xs justify-end">
 	<a href={data.gitHubUrl} target="_blank">View on GitHub</a>
 	<a href={`${data.gitHubUrl.replace('/blob/', '/blame/')}`} target="_blank">blame</a>
 	<a href="/blog/{data.slug}.md" target="_blank">Markdown</a>
 </footer>
 
 <style>
-	@import 'tailwindcss';
-
-	:global {
-		@import 'github-markdown-css/github-markdown-dark.css';
-		@import 'prism-themes/themes/prism-a11y-dark.css';
-
-		.footer-links a::before {
-			content: '[';
-		}
-		.footer-links a::after {
-			content: ']';
-		}
-
-		.toc {
-			@apply pb-6 mb-6 border-b-4 border-[#3d444d];
-		}
-		.toc .toc-level-1 {
-			@apply pl-0 mb-0 ml-4;
-		}
-		.footnotes {
-			@apply border-t-0!;
-		}
-
-		.markdown-body {
-			ol {
-				@apply list-decimal;
-			}
-
-			a,
-			a code {
-				@apply text-blue-400! underline!;
-			}
-
-			p,
-			li {
-				color: oklch(95% 0.003 247.858);
-			}
-
-			/* offset for heading marker (###) */
-			h3 {
-				margin-left: calc(var(--text-3xl) * -1);
-			}
-
-			h3,
-			h4,
-			h5,
-			h6 {
-				@apply font-normal!;
-			}
-
-			/* Show class name on code blocks as language name */
-			pre[class*='language-']:not(.language-undefined)::before {
-				content: attr(class);
-				position: absolute;
-				top: 0.5rem;
-				right: 0.5rem;
-				font-size: 0.75rem;
-				font-weight: bold;
-				color: #6b7280;
-				text-transform: none;
-				background: rgba(0, 0, 0, 0.1);
-				padding: 0.25rem 0.5rem;
-				border-radius: 0.25rem;
-			}
-			pre[class*='language-'] {
-				position: relative;
-			}
-		}
+	.footer-links a::before {
+		content: '[';
+	}
+	.footer-links a::after {
+		content: ']';
 	}
 </style>

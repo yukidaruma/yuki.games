@@ -29,41 +29,61 @@ button.anchor:hover {
 /* Headings */
 h1,
 h2,
-h3 {
-	display: flex;
-	color: var(--color-slate-100);
+h3,
+h4,
+h5,
+h6 {
+	@apply font-medium text-slate-100;
+}
+h1,
+h2,
+h3,
+h4 {
+	@apply flex items-start;
 }
 h1::before,
 h2::before,
-h3::before {
+h3::before,
+h4::before {
 	flex-shrink: 0;
 	display: block;
-	width: var(--text-3xl);
+	width: calc(var(--spacing) * 8);
 	color: var(--color-slate-500);
 	align-content: center;
 }
 
 h1 {
-	@apply text-3xl font-medium;
+	@apply text-3xl;
 }
 h1::before {
 	content: '#';
 }
 h2 {
-	@apply mt-4 text-xl font-medium;
+	@apply mt-4 text-xl;
 }
 h2::before {
 	content: '##';
 }
-h2 + * {
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
 	@apply mt-2;
 }
 h3 {
 	@apply mt-4 text-lg;
 }
 h3::before {
-	content: '###';
 	@apply text-sm;
+	content: '###';
+}
+h4 {
+	@apply mt-4;
+}
+h4::before {
+	content: '####';
+	font-size: 11.5px;
 }
 
 /* Sections */
@@ -87,7 +107,18 @@ ul > li + li {
 }
 
 /* Code */
+pre,
 code {
+	font-family:
+		ui-monospace,
+		SFMono-Regular,
+		SF Mono,
+		Menlo,
+		Consolas,
+		Liberation Mono,
+		monospace;
+}
+code:not(a code) {
 	color: var(--color-slate-100);
 	background: var(--color-slate-800);
 	padding: 0.25rem 0.5rem;

@@ -13,7 +13,7 @@
 </svelte:head>
 
 {#each [blogPosts, archivePosts] as posts, index}
-	<h2 class="flex items-center">
+	<h2 class="flex items-center!">
 		<span>{index === 0 ? 'Blog' : 'Old blog archive'}</span>
 		{#if index === 0}
 			<a href="/rss.xml" title="RSS Feed" class="ml-2 text-orange-500!">
@@ -21,7 +21,7 @@
 			</a>
 		{/if}
 	</h2>
-	<section>
+	<section class="mt-4!">
 		<div>
 			<ul>
 				{#each posts as post}
