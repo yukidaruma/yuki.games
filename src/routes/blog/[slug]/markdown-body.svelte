@@ -45,6 +45,10 @@
 				@apply flex items-center;
 			}
 
+			.anchor {
+				@apply ml-2!;
+			}
+
 			.toc {
 				@apply mb-6;
 			}

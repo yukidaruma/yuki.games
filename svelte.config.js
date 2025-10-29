@@ -19,6 +19,27 @@ export default {
 			rehypePlugins: [
 				rehypeGithubAlerts,
 				[
+					rehypeAutolinkHeadings,
+					{
+						behavior: 'append',
+						properties: {
+							className: ['anchor'],
+							ariaHidden: true,
+							tabIndex: -1
+						},
+						content() {
+							return {
+								type: 'element',
+								tagName: 'span',
+								properties: {
+									className: ['octicon-link']
+								},
+								children: []
+							};
+						}
+					}
+				],
+				[
 					toc,
 					{
 						customizeTOC(toc) {
