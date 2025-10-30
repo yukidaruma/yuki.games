@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Component, getAllContexts, getContext, onMount } from 'svelte';
+	import { type Component, getContext } from 'svelte';
 
 	const MDComponent = getContext<Component>('markdown-content');
 </script>
@@ -18,35 +18,44 @@
 			@apply text-slate-200!;
 
 			& > {
-				.markdown-alert {
-				}
+				.markdown-alert,
 				blockquote,
 				details,
 				div,
 				figure,
-				p,
-				pre,
-				ul,
 				h5,
 				h6,
 				hr,
+				p,
+				pre,
+				ul,
 				.toc hr {
 					@apply ml-8!;
+				}
+				video {
+					@apply pl-8;
 				}
 				ul {
 					@apply pl-0;
 				}
 			}
 
-			h3,
-			h4,
-			h5,
-			h6 {
-				@apply flex items-center;
+			img,
+			video {
+				@apply w-full h-full contain-content;
 			}
 
-			.anchor {
-				@apply ml-2!;
+			h3 a {
+				@apply flex items-center h-[calc(var(--text-lg)*var(--yuki-line-height))];
+			}
+			h4 a {
+				@apply flex items-center h-[calc(var(--text-base)*var(--yuki-line-height))];
+			}
+			h3 a img,
+			h4 a img,
+			h5 a img,
+			h6 a img {
+				@apply ml-2 h-[16px]! w-[16px]! inline-block text-slate-100 pr-0!;
 			}
 
 			.toc {

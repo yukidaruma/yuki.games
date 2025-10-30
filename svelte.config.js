@@ -30,9 +30,9 @@ export default {
 						content() {
 							return {
 								type: 'element',
-								tagName: 'span',
+								tagName: 'img',
 								properties: {
-									className: ['octicon-link']
+									src: '/octicon-link.svg'
 								},
 								children: []
 							};

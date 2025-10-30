@@ -47,7 +47,12 @@
 					{/if}
 				{/each}
 				{#if isLocalhost}
-					<a href={prodUrl} target="_blank" class="text-slate-300! text-base">_</a>
+					<a
+						href={prodUrl}
+						target="_blank"
+						class="hidden text-slate-300! text-base"
+						class:block!={isLocalhost}>_</a
+					>
 				{/if}
 			</h1>
 			{#if isBlog}

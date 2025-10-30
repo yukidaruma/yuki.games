@@ -6,9 +6,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+	--yuki-line-height: 1.4;
+}
+
 body {
 	@apply min-h-svh bg-slate-900 text-slate-300 font-mono;
-	line-height: 1.4;
+	line-height: var(--yuki-line-height);
 }
 
 /* Navigations */
@@ -55,10 +59,17 @@ h1::before {
 	content: '#';
 }
 h2 {
-	@apply mt-4 text-xl;
+	@apply text-xl;
 }
 h2::before {
 	content: '##';
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply mt-4;
 }
 h2 + *,
 h3 + *,
@@ -68,16 +79,14 @@ h6 + * {
 	@apply mt-2;
 }
 h3 {
-	@apply mt-4 text-lg;
+	@apply text-lg;
 }
 h3::before {
-	@apply text-sm;
+	@apply text-sm h-[calc(var(--text-xl)*var(--yuki-line-height))];
 	content: '###';
 }
-h4 {
-	@apply mt-4;
-}
 h4::before {
+	@apply h-[calc(var(--text-base)*var(--yuki-line-height))];
 	content: '####';
 	font-size: 11.5px;
 }
